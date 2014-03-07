@@ -1,0 +1,192 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
+pre code { border: 0px !important; padding: 0;}
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%; outline:none;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><title>Package Control Messages</title></head><body><h1 id="package-control-messages">Package Control Messages</h1>
+<h2 id="markdown-preview">Markdown Preview:</h2>
+<p>Sublime Text 2/3 Markdown Preview
+  =================================</p>
+<p>Preview and build your markdown files quickly in your web browser from sublime text 2/3. </p>
+<p>You can use builtin <a href="https://github.com/waylan/Python-Markdown">python-markdown</a> parser or use the <a href="http://developer.github.com/v3/markdown">github markdown API</a> for the conversion.</p>
+<p><strong>NOTE:</strong> If you choose the GitHub API for conversion (set parser: github in your settings), your code will be sent through https to github for live conversion. You'll have <a href="http://github.github.com/github-flavored-markdown/">Github flavored markdown</a>, syntax highlighting and EMOJI support for free :heart: :octocat: :gift:. If you make more than 60 calls a day, be sure to set your GitHub API key in the settings :)</p>
+<p><strong>LINUX users:</strong> If you want to use GitHub API for conversion, you'll need to have a custom Python install that includes python-ssl as its not built in the Sublime Text 2 Linux package. see <a href="https://github.com/revolunet/sublimetext-markdown-preview/issues/27#issuecomment-11772098">@dusteye comment</a>. If you use a custom window manager, also be sure to set a <code>BROWSER</code> environment variable. see <a href="https://github.com/revolunet/sublimetext-markdown-preview/issues/78#issuecomment-15644727">@PPvG comments</a></p>
+<p>## Features :</p>
+<ul>
+<li>Markdown preview using the <a href="https://github.com/waylan/Python-Markdown">Python-markdown</a> or the Github API just choose select the build commands.</li>
+<li>Build markdown file using Sublime Text build system. The build parser are config via the <code>"parser"</code> config.</li>
+<li>Browser preview auto reload on save if you have the <a href="https://github.com/dz0ny/LiveReload-sublimetext2">ST2 LiveReload plugin</a> installed.</li>
+<li>Builtin parser : supports <code>abbr</code>, <code>attr_list</code>, <code>def_list</code>, <code>fenced_code</code>, <code>footnotes</code>, <code>tables</code>, <code>smart_strong</code> and <code>toc</code> markdown extensions.</li>
+<li>CSS search path for local and build-in CSS files (always enabled) and/or CSS overriding if you need</li>
+<li>YAML support thanks to @tommi</li>
+<li>Clipboard selection and copy to clipboard thanks to @hexatrope</li>
+<li>MathJax support : \(\frac{\pi}{2}\) thanks to @bps10</li>
+<li>HTML template customisation thanks to @hozaka</li>
+</ul>
+<p>## Installation :</p>
+<p>### Using <a href="https://sublime.wbond.net/">Package Control</a> (<em>Recommended</em>)</p>
+<p>For all Sublime Text 2/3 users we recommend install via <a href="https://sublime.wbond.net/">Package Control</a>.</p>
+<ol>
+<li><a href="https://sublime.wbond.net/installation">Install</a> Package Control if you haven't yet.</li>
+<li>Use <code>cmd+shift+P</code> then <code>Package Control: Install Package</code></li>
+<li>Look for <code>Markdown Preview</code> and install it.</li>
+</ol>
+<p>### Manual Install</p>
+<ol>
+<li>Click the <code>Preferences &gt; Browse Packages…</code> menu</li>
+<li>Browse up a folder and then into the <code>Installed Packages/</code> folder</li>
+<li>Download <a href="https://github.com/revolunet/sublimetext-markdown-preview/archive/master.zip">zip package</a> rename it to <code>Markdown Preview.sublime-package</code> and copy it into the <code>Installed Packages/</code> directory</li>
+<li>Restart Sublime Text</li>
+</ol>
+<p>## Usage :</p>
+<p>### To preview :</p>
+<ul>
+<li>optionally select some of your markdown for conversion</li>
+<li>use <code>cmd+shift+P</code> then <code>Markdown Preview</code> to show the follow commands:<ul>
+<li>Markdown Preview: Python Markdown: Preview in Browser</li>
+<li>Markdown Preview: Python Markdown: Export HTML in Sublime Text</li>
+<li>Markdown Preview: Python Markdown: Copy to Clipboard</li>
+<li>Markdown Preview: Github Flavored Markdown: Preview in Browser</li>
+<li>Markdown Preview: Github Flavored Markdown: Export HTML in Sublime Text</li>
+<li>Markdown Preview: Github Flavored Markdown: Copy to Clipboard</li>
+<li>Markdown Preview: Open Markdown Cheat sheet</li>
+</ul>
+</li>
+<li>or bind some key in your user key binding, using a line like this one:
+     <code>{ "keys": ["alt+m"], "command": "markdown_preview", "args": {"target": "browser", "parser":"markdown"} },</code></li>
+<li>once converted a first time, the output HTML will be updated on each file save (with LiveReload plugin)</li>
+</ul>
+<p>### To build :</p>
+<ul>
+<li>Just use <code>Ctrl+B</code> (Windows/Linux) or <code>cmd+B</code> (Mac) to build current file.</li>
+</ul>
+<p>### To config :</p>
+<p>Using Sublime Text menu: <code>Preferences</code>-&gt;<code>Package Settings</code>-&gt;<code>Markdown Preview</code></p>
+<ul>
+<li><code>Settings - User</code> is where you change your settings for Markdown Preview.</li>
+<li><code>Settings - Default</code> is a good reference with detailed descriptions for each setting.</li>
+</ul>
+<p>## Support :</p>
+<ul>
+<li>Any bugs about Markdown Preview please feel free to report <a href="https://github.com/revolunet/sublimetext-markdown-preview/issues">here</a>.</li>
+<li>And you are welcome to fork and submit pullrequests.</li>
+</ul>
+<p>## License :</p>
+<p>The code is available at github <a href="https://github.com/revolunet/sublimetext-markdown-preview">project</a> under <a href="http://revolunet.mit-license.org">MIT licence</a>.</p></body></html>
