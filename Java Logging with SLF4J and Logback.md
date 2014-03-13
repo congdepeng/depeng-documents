@@ -232,19 +232,15 @@ Logback作为SLF4J的首选日记框架，有着比log4j更多的优点，值得
 
 ### 2.1.1性能损耗举例
 避免了之前为了减少字符串拼接的性能损耗而不得不写的如下判断：
-
 ```java
 if(logger.isDebugEnable())
 ```
-
 现在你可以直接写：
 ```java
 logger.debug(“current user is: {}”, user)
 ```
-
 拼装消息被推迟到了它能够确定是不是要显示这条消息的时候，但是获取参数的代价并没有幸免。
 同时，日志中的参数若超过三个，则需要将参数以数组的形式传入，如：
-
 ```java
     Object[] params = {value1, value2, value3};
     logger.debug(“first value: {}, second value: {} and third value: {}.”, params);
