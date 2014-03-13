@@ -17,7 +17,8 @@ SLF4J的竞争框架是Jakarta Commons Logging， 很显然SLF4J更胜一筹。 
 4J做什么？）
 
 结论是，log4j 2.x的正式版发布和流行还需要一段时间，因此在几年以内，还是继续所用SLF4J吧。
-对于SLF4J想要达到实操级别，请读[SLF4J user manual](http://www.slf4j.org/manual.html)
+
+
 
 
 ## 1.2 绑定（Binding）一个具体的干活的logging框架
@@ -25,17 +26,19 @@ SLF4J作为一个门面模式的框架， 我们代码里面调用它的API去�
 或者logback来干活。
 
 如果不提供具体框架，将会有如下错误提示：
+ 
 ```java
-    SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
-    SLF4J: Defaulting to no-operation (NOP) logger implementation
-    SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+
 ```
 
 **候选的干活的日记框架如下：**
  - slf4j-log4j12-1.7.6.jar （绑定log4j版本1.2）
  - slf4j-jdk14-1.7.6.jar (java.util.logging JDK 1.4 logging)
  - slf4j-nop-1.7.6.jar  (NOP 空转,不打印日记)
- - slf4j-simple-1.7.6.jar （写小程序的时候用用的简单logging）
+ - slf4j-simple-1.7.6.jar （写demo程序的时候用用的简单logging实现）
  - slf4j-jcl-1.7.6.jar （Jakarta Commons Logging 的绑定，将把所有SLF4J接受到的日记代理给JCL）
  - logback-classic-1.0.13.jar[依赖logback-core-1.0.13.jar] **默认最配的实现，不需要适配层，效率最高最好！！！**
 
@@ -180,13 +183,16 @@ SLF4J期望的是只找到一个StaticLoggerBinder类，该类实现了LoggerFac
 下图演示了真实的绑定层次，application就是指你的应用程序，
 ![具体绑定演示图](/images/concrete-bindings.png)
 
+图片引用自：[SLF4J用户手册](http://www.slf4j.org/manual.html)
 
 
-## 1.3 历史遗留问题如何解决
+## 1.3 类库日记框架混杂问题如何解决
 
-http://xuhengfei.com/notebook/2012/02/java-slf4j/
+项目中使用了一个第三方的jar，该jar使用了log4j来打印日记，而我们的新项目使用了logback，如果我们期望第三方jar打印的日记也统一的
+由logback来处理，怎么办？
 
-如果你有一个老项目，原来是直接所用log4j的，
+很明显，第三方的jar绑定到log4j上了，它不会主动的去适配我们的项目，只有我们的项目去主动解决这个问题。幸好SLF4J已经为我们解决了这个问题，
+SLF4J提供了一系列桥接jar，来将log4j，JCL和java.util.logging的API调用重定向到SLF4J，其效果就跟第三方jar直接调用SLF4J一样。
 
  - jcl-over-slf4j.jar
 > 对于已经用了Jakarta Commons Logging的第三方类库，可以用jcl-over-slf4j.jar来将日记桥接到SLF4J。
@@ -200,7 +206,7 @@ logback网站上有提供转换器：http://logback.qos.ch/translator/。
 
 结论，所以为了防止项目中将要或者已经引用了有历史遗留问题的jar，我们需要将这些桥接的jar包加入依赖，防患于未然。
 
-
+![具体桥接演示图](/images/legacy.png)
 
 
 
@@ -208,29 +214,25 @@ logback网站上有提供转换器：http://logback.qos.ch/translator/。
 
 # 2, Logback
 
-
-```java
-   <!--初始化日志配置文件 -->
-    <listener>
-        <listener-class>
-            com.boaotech.util.LogbackConfigListener
-        </listener-class>
-    </listener>
-    <context-param>
-        <param-name>logbackConfigLocation</param-name>
-        <param-value>WEB-INF/logback.xml</param-value>
-    </context-param>
-
-```
+Logback作为SLF4J的首选日记框架，有着比log4j更多的优点，值得使用。
 
 
 ## 2.1 Logback Advantage
 
- - 自动重新载入配置文件
- - 配置文件中的条件处理
- - MDC Filter(dfdf)df
- - 支持参数化的log字符串，避免了之前为了减少字符串拼接的性能损耗
- - etc....
+ - 自动重新载入配置文件，不需要重新启动应用程序服务器
+ - 性能提升，更快的执行速度
+ - 进过更充分的测试，更稳定
+ - 非常自然的实现SLF4J
+ - 非常完善的文档
+ - 非常优雅的从I/O异常恢复功能
+ - 自动压缩归档日志文件
+ - 配置清除旧的日志归档文件
+ - [谨慎模式](http://logback.qos.ch/manual/appenders.html#prudent)
+ - [Lilith](http://lilith.huxhorn.de/)
+ - [配置文件中的条件处理](http://logback.qos.ch/manual/configuration.html#conditional)
+ - [过滤功能](http://logback.qos.ch/manual/filters.html)
+ - [SiftingAppender](http://logback.qos.ch/manual/appenders.html#SiftingAppender)
+ - Logback-access模块，提供了通过HTTP访问日志的能力
 
 
 ### 2.1.1性能损耗举例
@@ -255,8 +257,117 @@ logger.debug(“current user is: {}”, user)
 
 
 
+## 2.2 Logback的使用举例
+
+### 2.2.1 加入Maven依赖
+
+如下所示，加入到pom.xml文件。
+```xml
+    <dependencies>
+        <!--Log interface: slf4j-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+
+        <!--log implements: logback-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.0.13</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.0.13</version>
+        </dependency>
+
+        <!--log slf4j bridges-->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+
+    </dependencies>
+```
+
+### 2.2 加入Logback的配置文件
+
+Logback如何加载他的配置文件呢？如下所示：
+ 1. Logback试图在classpath查找logback.groovy
+ 2. 如果找不到，logback接着找logback-test.xml
+ 3. 如果还找不到，就找logback.xml
+ 4. 如果仍然找不到就使用BasicConfigurator将日记打印到命令行
 
 
+ **那我们可以自定义logback的配置文件路径吗？**
+ ```java
+    <listener>
+        <listener-class>
+            com.boaotech.util.LogbackConfigListener
+        </listener-class>
+    </listener>
+    <context-param>
+        <param-name>logbackConfigLocation</param-name>
+        <param-value>WEB-INF/logback.xml</param-value>
+    </context-param>
 
-todo:
- 1 自定义配置文件路径？？？？？？？？？？
+```
+
+### 2.3 Logback的配置文件格式
+
+有过配置log4j经验的人很容易就可以看懂Logback的配置文件格式：
+```xml
+    <configuration scan="true" scanPeriod="30 seconds">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>STDOUT %date %level [%thread] %logger.%class{0}#%method [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <prudent>true</prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                myApp-%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>ROLLING %date %level [%thread] %logger.%class{0}#%method [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+    <!--thos logger name is very important, java source code must match this to print log-->
+    <logger name="com">
+        <appender-ref ref="ROLLING"/>
+    </logger>
+</configuration>
+```
+具体的配置语法见[config syntax](http://logback.qos.ch/manual/configuration.html#syntax)
+
+
+### 2.4 log4j迁移到Logback
+
+Logback网站上提供了log4j配置文件的转换器 [Translator](http://logback.qos.ch/translator/)
