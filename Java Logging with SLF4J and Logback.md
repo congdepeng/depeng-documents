@@ -319,15 +319,21 @@ Logback如何加载他的配置文件呢？如下所示：
 
 
  **那我们可以自定义logback的配置文件路径吗？**
+
+ 答案是必须的。
+
+ - 方案一：Java命令传入
  ```java
-    <listener>
-        <listener-class>
-            com.boaotech.util.LogbackConfigListener
-        </listener-class>
-    </listener>
+     java -Dlogback.configurationFile=/path/to/config.xml
+ ```
+
+ - 方案二：Java Web项目 [logback-extensions](https://github.com/qos-ch/logback-extensions)
+ 将自定义的配置文件配置到web.xml，然后通过Listener去加载。
+ ```java
+
     <context-param>
         <param-name>logbackConfigLocation</param-name>
-        <param-value>WEB-INF/logback.xml</param-value>
+        <param-value>WEB-INF/logback-mine.xml</param-value>
     </context-param>
 
 ```
