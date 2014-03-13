@@ -1,6 +1,6 @@
 
 
-Java Logging with SLF4J and Logback.md
+Java Logging with SLF4J and Logback
 ======================================
 
 
@@ -9,29 +9,20 @@ Java Logging with SLF4J and Logback.md
 
 ## 1.1 SLF4J的概述
 SLF4J目标是试图使用门面模式来统一Java日记相关的API，在编程的时候，我们只需要和SLF4J打交道。
-在运行期，你需要将对应的实现框架添加到classpath，例如log4j或者logback。
+程序在可以在运行期无缝的集成或者切换对应的日记类库，例如log4j或者ogback。
 
-    * 如果添加了2个binding怎么办，按照优先级还是报错还是其他？（答案是发出警告，然后选择第一个找到的绑定去干活。）
-
-SLF4J的必要性在哪里呢？ 例如你开发一个框架，比如spring，其中使用了一个日记框架，如果客户想要用你的框架，势必和你的日记框架耦合，
-这是非常不爽的事情。
-
-
-SLF4J的竞争框架是Jakarta Commons Logging， 很显然SLF4J更胜一筹。 因为SLF4J和log4j以及logback一样都是一个作者写的。
+SLF4J和log4j以及logback一样都是一个作者写的，它是为了替换Jakarta Commons Logging而开发， 从流行度来看很显然SLF4J更胜一筹。
 但是SLF4J也不是高枕无忧的，因为它的作者又开始写一个新的框架来替代它-----那就是log4j 2.x版本！（干嘛不直接写log4j 2.x？搞出个SLF
 4J做什么？）
 
-结论是，log4j 2.x的正式版发布和流行还需要一段时间，因此在几年以内，还是继续所用SLF4J吧。
-
-
+log4j 2.x的正式版发布和流行还需要一段时间，因此在几年以内，还是继续所用SLF4J吧。
 
 
 ## 1.2 绑定（Binding）一个具体的干活的logging框架
-SLF4J作为一个门面模式的框架， 我们代码里面调用它的API去打印日记，但是其实它根本就不会干活，它就像一个中介，需要具体的干活的日记框架，例如log4j
+SLF4J作为一个门面模式的框架， 我们代码里面调用它的API去打印日记，但是它其实根本就不会干活，它就像一个中介，需要具体的干活的日记框架，例如log4j
 或者logback来干活。
 
 如果不提供具体框架，将会有如下错误提示：
- 
 ```java
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
