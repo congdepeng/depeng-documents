@@ -42,7 +42,6 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 **如何绑定干活的日记框架？**
 只要把候选的框架加到classpath就自动绑定了。 那具体是怎么做的？
-
 现在假设项目pom.xml依赖信息如下，依赖了slf4j接口和3个干活的实现log4j，simple和logback
 ```java
     <dependencies>
@@ -182,7 +181,7 @@ SLF4J期望的是只找到一个StaticLoggerBinder类，该类实现了LoggerFac
 图片引用自：[SLF4J用户手册](http://www.slf4j.org/manual.html)
 
 
-## 1.3 类库日记框架混杂问题如何解决
+## 1.3 如何解决第三方类库的日记兼容问题
 
 项目中使用了一个第三方的jar，该jar使用了log4j来打印日记，而我们的新项目使用了logback，如果我们期望第三方jar打印的日记也统一的
 由logback来处理，怎么办？
@@ -326,12 +325,12 @@ Logback如何加载他的配置文件呢？如下所示：
         <param-name>logbackConfigLocation</param-name>
         <param-value>WEB-INF/logback-mine.xml</param-value>
     </context-param>
-
 ```
 
-### 2.3 Logback的配置文件格式
 
+### 2.3 Logback的配置文件格式
 有过配置log4j经验的人很容易就可以看懂Logback的配置文件格式：
+
 ```xml
     <configuration scan="true" scanPeriod="30 seconds">
 
