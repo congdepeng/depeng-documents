@@ -313,8 +313,27 @@ Logback如何加载他的配置文件呢？如下所示：
      java -Dlogback.configurationFile=/path/to/config.xml
  ```
 
- - 方案二：Java Web项目 [logback-extensions](https://github.com/qos-ch/logback-extensions)
- 将自定义的配置文件配置到web.xml，然后通过Listener去加载。
+ - 方案二：
+ 对于Log4j，我们可以这样自定义加载配置文件：
+ ```java
+         //initialize log4j
+         DOMConfigurator.configure(Variable.log4jFilePath);
+ ```
+ 而Logback自定义配置文件代码如下，这样做的缺点是直到你调用这段代码之前，logback会用默认的log形式来打印容器启动时候的log。
+ ```java
+        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+        JoranConfigurator configurator = new JoranConfigurator();
+        configurator.setContext(lc);
+        lc.reset();
+        try {
+            configurator.doConfigure(Variable.logbackFilePath);
+        } catch (JoranException e) {
+            e.printStackTrace();
+        }
+ ```
+
+ - 方案三：对于Java Web项目 [logback-extensions](https://github.com/qos-ch/logback-extensions)
+ 将自定义的配置文件配置到web.xml，然后通过Listener去加载。 很方案二一样，何时加载你自定义的配置文件取决于你用何种方案加载配置。
  ```java
 
     <context-param>
