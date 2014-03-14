@@ -345,9 +345,8 @@ Logback如何加载他的配置文件呢？如下所示：
  ```
 
  - 方案三：对于Java Web项目 [logback-extensions](https://github.com/qos-ch/logback-extensions)
- 将自定义的配置文件配置到web.xml，然后通过Listener去加载。 很方案二一样，何时加载你自定义的配置文件取决于你用何种方案加载配置。
+ 将自定义的配置文件配置到web.xml，然后通过Listener去加载。 和方案二一样，何时加载你自定义的配置文件取决于你用何种方案加载配置。
  ```java
-
     <context-param>
         <param-name>logbackConfigLocation</param-name>
         <param-value>WEB-INF/logback-mine.xml</param-value>
@@ -397,7 +396,20 @@ Logback如何加载他的配置文件呢？如下所示：
 
 
 ### 2.4 Logback的配置详解
-TODO
+
+Logback的配置文件层级关系
+
+![Logback的配置文件层级关系](/images/logback-config.png)
+
+#### 2.4.1 configuration
+configuration作为顶级节点，除了包含其他3个主要节点外，还可以配置一些全局的设置。
+
+#### 2.4.2 appender
+
+
+
+#### 2.4.3 logger
+#### 2.4.4 root
 
 ### 2.5 log4j迁移到Logback
 
