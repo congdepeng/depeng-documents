@@ -3,7 +3,8 @@
 Java Logging with SLF4J and Logback
 ======================================
 
-
+* auto-gen TOC:
+{:toc}
 
 #1, Simple Logging Facade for Java (SLF4J)
 
