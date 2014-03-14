@@ -18,8 +18,6 @@ Java Logging with SLF4J and Logback
  - [2.2 Logback的使用举例](#22-logback%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%BE%E4%BE%8B)
 
 
-
-
 #1, Simple Logging Facade for Java (SLF4J)
 
 ## 1.1 SLF4J的概述
