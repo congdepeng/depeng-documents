@@ -12,8 +12,7 @@ SLF4J目标是试图使用门面模式来统一Java日记相关的API，在编�
 程序在可以在运行期无缝的集成或者切换对应的日记类库，例如log4j或者ogback。
 
 SLF4J和log4j以及logback一样都是一个作者写的，它是为了替换Jakarta Commons Logging而开发， 从流行度来看很显然SLF4J更胜一筹。
-但是SLF4J也不是高枕无忧的，因为它的作者又开始写一个新的框架来替代它-----那就是log4j 2.x版本！（干嘛不直接写log4j 2.x？搞出个SLF
-4J做什么？）
+但是SLF4J也不是高枕无忧的，因为它的作者又开始写一个新的框架来替代它-----那就是log4j 2.x版本！
 
 log4j 2.x的正式版发布和流行还需要一段时间，因此在几年以内，还是继续所用SLF4J吧。
 
@@ -310,7 +309,7 @@ Logback如何加载他的配置文件呢？如下所示：
 
  - 方案一：Java命令传入
  ```java
-     java -Dlogback.configurationFile=/path/to/config.xml
+     java -Dlogback.configurationFile=/path/to/config.xml chapters.configuration.MyApp1
  ```
 
  - 方案二：
@@ -319,7 +318,7 @@ Logback如何加载他的配置文件呢？如下所示：
          //initialize log4j
          DOMConfigurator.configure(Variable.log4jFilePath);
  ```
- 而Logback自定义配置文件代码如下，这样做的缺点是直到你调用这段代码之前，logback会用默认的log形式来打印容器启动时候的log。
+ 而Logback[自定义](http://logback.qos.ch/manual/configuration.html#joranDirectly)配置文件代码如下，这样做的缺点是直到你调用这段代码之前，logback会用默认的log形式来打印容器启动时候的log。
  ```java
         LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
         JoranConfigurator configurator = new JoranConfigurator();
@@ -384,6 +383,9 @@ Logback如何加载他的配置文件呢？如下所示：
 具体的配置语法见[config syntax](http://logback.qos.ch/manual/configuration.html#syntax)
 
 
-### 2.4 log4j迁移到Logback
+### 2.4 Logback的配置详解
+TODO
+
+### 2.5 log4j迁移到Logback
 
 Logback网站上提供了log4j配置文件的转换器 [Translator](http://logback.qos.ch/translator/)
