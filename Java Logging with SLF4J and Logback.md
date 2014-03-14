@@ -4,17 +4,18 @@ Java Logging with SLF4J and Logback
 ======================================
 
 ##### Table of Contents
-[1.1 SLF4J的概述](#1-simple-logging-facade-for-java-slf4j)
+[1, SLF4J](#java-logging-with-slf4j-and-logback)
+ - [1.1 SLF4J的概述](#1-simple-logging-facade-for-java-slf4j)
 
-[1.2 绑定（Binding）一个具体的干活的logging框架](#12-%E7%BB%91%E5%AE%9Abinding%E4%B8%80%E4%B8%AA%E5%85%B7%E4%BD%93%E7%9A%84%E5%B9%B2%E6%B4%BB%E7%9A%84logging%E6%A1%86%E6%9E%B6)
+ - [1.2 绑定（Binding）一个具体的干活的logging框架](#12-%E7%BB%91%E5%AE%9Abinding%E4%B8%80%E4%B8%AA%E5%85%B7%E4%BD%93%E7%9A%84%E5%B9%B2%E6%B4%BB%E7%9A%84logging%E6%A1%86%E6%9E%B6)
 
-[1.3 如何解决第三方类库的日记兼容问题](#13-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B1%BB%E5%BA%93%E7%9A%84%E6%97%A5%E8%AE%B0%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98)
+ - [1.3 如何解决第三方类库的日记兼容问题](#13-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B1%BB%E5%BA%93%E7%9A%84%E6%97%A5%E8%AE%B0%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98)
 
 [2, Logback](#2-logback)
 
-[2.1 Logback Advantage](#21-logback-advantage)
+ - [2.1 Logback Advantage](#21-logback-advantage)
 
-[2.2 Logback的使用举例](#22-logback%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%BE%E4%BE%8B)
+ - [2.2 Logback的使用举例](#22-logback%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%BE%E4%BE%8B)
 
 
 
