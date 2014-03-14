@@ -55,7 +55,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 **如何绑定干活的日记框架？**
 只要把候选的框架加到classpath就自动绑定了。 那具体是怎么做的？
 现在假设项目pom.xml依赖信息如下，依赖了slf4j接口和3个干活的实现log4j，simple和logback
-```java
+```xml
     <dependencies>
         <!--Log interface: slf4j-->
         <dependency>
@@ -346,7 +346,7 @@ Logback如何加载他的配置文件呢？如下所示：
 
  - 方案三：对于Java Web项目 [logback-extensions](https://github.com/qos-ch/logback-extensions)
  将自定义的配置文件配置到web.xml，然后通过Listener去加载。 和方案二一样，何时加载你自定义的配置文件取决于你用何种方案加载配置。
- ```java
+ ```xml
     <context-param>
         <param-name>logbackConfigLocation</param-name>
         <param-value>WEB-INF/logback-mine.xml</param-value>
