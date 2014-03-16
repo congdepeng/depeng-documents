@@ -392,7 +392,6 @@ Logback如何加载他的配置文件呢？如下所示：
     </logger>
 </configuration>
 ```
-具体的配置语法见[config syntax](http://logback.qos.ch/manual/configuration.html#syntax)
 
 
 ### 2.4 Logback的配置详解
@@ -405,11 +404,17 @@ Logback的配置文件层级关系
 configuration作为顶级节点，除了包含其他3个主要节点外，还可以配置一些全局的设置。
 
 #### 2.4.2 appender
-
+[appender](http://logback.qos.ch/manual/appenders.html)描述了log将输出到终端还是文件或者其他什么地方，输出的格式是什么样的等等。
 
 
 #### 2.4.3 logger
+logger是代码和appender的链接点。
+
 #### 2.4.4 root
+作为默认的主logger而存在。
+
+更具体的配置语法见[config syntax](http://logback.qos.ch/manual/configuration.html#syntax)
+
 
 ### 2.5 log4j迁移到Logback
 
