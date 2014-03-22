@@ -1,5 +1,5 @@
 
-# IDEA
+#Intellij IDEA. Thank you! You are the reason why I still can write Java.
 
 
 ## config files
