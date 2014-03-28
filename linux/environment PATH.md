@@ -10,5 +10,5 @@
         * zsh :
 
 ## Example: set Gradle
-    1. export GRADLE_HOME=/home/depeng/apps/gradle-1.11
+    1. export GRADLE_HOME=/home/depeng/apps/gradle-1.9
     2. export PATH=${PATH}:${GRADLE_HOME}
