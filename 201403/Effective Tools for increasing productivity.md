@@ -1,3 +1,8 @@
+:Author: Cong Depeng
+:Date: 30/03/2014
+
+
+
 # Effective Tools for increasing productivity
 
 I think tools are very important for diary works, especially for ITer. Today I want to introduce some effective tools I used every day.
