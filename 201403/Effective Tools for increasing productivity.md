@@ -46,9 +46,9 @@ Mac and Windows also have the alternative solutions:
 
 ## Auto completion and auto hotkey
 How many times you types your email every day? And what about your username? If you hate repeating input, you must try:
-    - [AutoKey](https://code.google.com/p/autokey/) for Linux
-    - [AutoHotKey](http://www.autohotkey.com/) for Windows
-    - [TextExpander](https://smilesoftware.com/TextExpander/index.html) for Mac
+- [AutoKey](https://code.google.com/p/autokey/) for Linux
+- [AutoHotKey](http://www.autohotkey.com/) for Windows
+- [TextExpander](https://smilesoftware.com/TextExpander/index.html) for Mac
 
 
 
