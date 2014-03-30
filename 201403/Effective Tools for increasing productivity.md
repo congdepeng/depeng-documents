@@ -71,7 +71,9 @@ with only one hot key.
 - [Pocket](https://chrome.google.com/webstore/detail/pocket-formerly-read-it-l/niloccemoadcdkdjlinkgdfekeahmflj)The best way to save articles, videos and more
 
 
+## Tools is a good servant but a bad master
 
+Use tools for increasing productivity, but never to be the slave of tools.
 
 
 
