@@ -1,11 +1,11 @@
 # Effective Tools for increasing productivity
 
-I think tools is very important, especially for ITer. Today I want to introduce some effective tools I used every day.
+I think tools are very important for diary works, especially for ITer. Today I want to introduce some effective tools I used every day.
 
 
 
 ## Quick launcher
-Most of operations in using computer can be separated in 2 steps:
+Most operations in using computer can be split into 2 steps:
 
    1. find
    2. action
@@ -15,7 +15,7 @@ Or you need run a program, find it in installation folder and open it.
 Have you think about this, are these tedious operations full of your diary works?
 Why you need to find a file or program manually without using computer itself?
 
-Find and open file or program is a very common task in diary works, but it's inefficient to find a file manually.
+Find and open file is a very common task in diary works, but it's inefficient to find a file manually.
 Quick launch tools are designed for this.
 
 [Synapse](https://launchpad.net/synapse-project) is a quick launcher that you can use to find and open documents as well as start applications,
@@ -24,10 +24,15 @@ what you need to do is just typing the name of what you want.
 Synapse is developed for linux platform, the alternative tools for Windows is [Lanchy](http://www.launchy.net/), and [Alfred](http://www.alfredapp.com/) is for Mac OS.
 
 
+And if you are try to find files in a terminal, you should install [bashmarks](https://github.com/huyng/bashmarks) and [Vifm](http://vifm.sourceforge.net/).
+With these 2 tools, you can forget the "cd .. cd.. cd .. cd .. cd .." now.
+
+
 ## Clipboard Manager
 
 Edit history is very useful when writing documents, but the Linux OS is not original support clipboard history, so we need an tool to manage the clipboard.
 There are some clipboard manager for Linux:
+
     - [Glipper](https://launchpad.net/glipper): Clipboard utility for the GNOME panel
     - [Klipper](http://userbase.kde.org/Klipper): Clipboard manager for the KDE interface
     - [Parcellite](http://parcellite.sourceforge.net/): Lightweight GTK+ Clipboard Manager
