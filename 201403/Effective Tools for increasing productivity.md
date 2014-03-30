@@ -33,14 +33,15 @@ With these 2 tools, you can forget the "cd .. cd.. cd .. cd .. cd .." now.
 Edit history is very useful when writing documents, but the Linux OS is not original support clipboard history, so we need an tool to manage the clipboard.
 There are some clipboard manager for Linux:
 
-    - [Glipper](https://launchpad.net/glipper): Clipboard utility for the GNOME panel
-    - [Klipper](http://userbase.kde.org/Klipper): Clipboard manager for the KDE interface
-    - [Parcellite](http://parcellite.sourceforge.net/): Lightweight GTK+ Clipboard Manager
-    - [ClipIt](https://apps.ubuntu.com/cat/applications/clipit/): A fork of Parcellite which adds many bugfixes and features
+* [Glipper](https://launchpad.net/glipper): Clipboard utility for the GNOME panel
+* [Klipper](http://userbase.kde.org/Klipper): Clipboard manager for the KDE interface
+* [Parcellite](http://parcellite.sourceforge.net/): Lightweight GTK+ Clipboard Manager
+* [ClipIt](https://apps.ubuntu.com/cat/applications/clipit/): A fork of Parcellite which adds many bugfixes and features
 
 Mac and Windows also have the alternative solutions:
-    - [Ditto](http://ditto-cp.sourceforge.net/) for Windows
-    - [Alfred](http://www.alfredapp.com/) for Mac OS have Clipboard History sub-function
+
+* [Ditto](http://ditto-cp.sourceforge.net/) for Windows
+* [Alfred](http://www.alfredapp.com/) for Mac OS have Clipboard History sub-function
 
 
 ## Auto completion and auto hotkey
