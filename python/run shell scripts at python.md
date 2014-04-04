@@ -1,6 +1,6 @@
 # run scripts
 
-Ask your self:
+Ask yourself:
     - which base folder
     - which program
     - parameters?
@@ -8,7 +8,7 @@ Ask your self:
 
 
 ## os.system
-    -
+    - use;for working fold switch
 
 
 
