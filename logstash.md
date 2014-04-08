@@ -11,8 +11,8 @@ Ship logs from any source, parse them, get the right timestamp, index them, and 
 - download
     > wget -N https://download.elasticsearch.org/logstash/logstash/logstash-1.3.3-flatjar.jar -O logstash.jar
 - run
-    > java -jar logstash.jar agent -f logstash.conf -- web
-    > java -jar logstash.jar agent -f test.conf -- web
+    > sudo java -jar logstash.jar agent -f logstash.conf -- web
+    > sudo java -jar logstash.jar agent -f test.conf -- web
 - web view
     > 127.0.0.1:9300
 
