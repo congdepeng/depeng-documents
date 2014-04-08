@@ -11,6 +11,7 @@
     * [Insert](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Index%20Logs) :logs of insert service
     * [Index](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Insert%20Logs) :logs of index service
     * [Search](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Search%20Front%20Logs) :logs of search service
+    * [Common](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Common%20Service) :logs of common core service
 
 
 
