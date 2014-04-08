@@ -6,7 +6,7 @@
     * [Access duration distribution](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Access%20duration%20distribution) :Spending time logs
     * [Duration > 5000ms](http://172.31.50.193:19292/index.html#dashboard/temp/uYGE_IKqSCeJvNDiDuaO_A) :Slow logs(default 5000ms, you can change it)
     * [Search API access distribution](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Search%20API%20access)
-    * [Log id filter](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Log%20id%20filter)： filter relevant logs by log id(You should change default log id)
+    * [Log id filter](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Log%20id%20filter) :filter relevant logs by log id(You should change default log id)
 - Logs of Modules
     * [Insert](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Index%20Logs) :logs of insert service
     * [Index](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Insert%20Logs) :logs of index service
