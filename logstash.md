@@ -1,17 +1,17 @@
 
 - Log level
-    * [Log level distribution](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Log%20level%20distribution)
-    * [Error logs](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Error%20logs): filter out all errors
+    * [Group by log level](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Group%20by%20log%20level):group by log level
+    * [Error logs](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Error%20logs):filter out all errors
 - Access logs
-    * [Access duration distribution](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Access%20duration%20distribution) :Spending time logs
-    * [Duration > 5000ms](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Slow%20logs) :Slow logs(default 5000ms, you can change it)
-    * [Search API access distribution](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Search%20API%20access)
-    * [Log id filter](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Log%20id%20filter) :filter relevant logs by log id(You should change default log id)
+    * [Group by response time](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Group%20by%20response%20time): group by response time
+    * [Slow logs](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Slow%20logs):Slow logs(default 5000ms, you can change it)
+    * [Group by search API call](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Group%20by%20search%20API%20call):Group by search API call
+    * [Filter by log id](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Filter%20by%20log%20id) :filter relevant logs by log id(You should change default log id)
 - Logs of Modules
-    * [Insert](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Index%20Logs) :logs of insert service
-    * [Index](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Insert%20Logs) :logs of index service
-    * [Search](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Search%20Front%20Logs) :logs of search service
-    * [Common](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Common%20Service) :logs of common core service
+    * [Insert](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Insert%20logs) :logs of insert service
+    * [Index](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Index%20logs) :logs of index service
+    * [Search](http://172.31.50.193:19292/index.html#/dashboard/elasticsearch/Search%20logs) :logs of search service
+
 
 
 
