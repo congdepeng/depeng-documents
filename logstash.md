@@ -88,3 +88,19 @@ Ship logs from any source, parse them, get the right timestamp, index them, and 
             }
         ```
     * logstash
+- local log file
+    *
+
+
+> IP config in Vagrantfile
+```
+    config.vm.define "logstash" do |logstash|
+    logstash.vm.synced_folder "manifests", "/tmp/puppet/module-0"
+    logstash.vm.network "private_network", ip: "10.0.0.30"
+    logstash.vm.network "forwarded_port", guest: 9292, host: 19292
+    logstash.vm.network "forwarded_port", guest: 9200, host: 9200
+    logstash.vm.provider "virtualbox" do |v|
+      v.memory = 512
+      v.customize ["modifyvm", :id, "--cpus", 2]
+```
+
