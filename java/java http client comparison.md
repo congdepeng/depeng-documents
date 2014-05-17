@@ -15,20 +15,23 @@ Of course there already have many different famous implements of HTTP protocol i
 - [Google HTTP Client Library for Java](https://code.google.com/p/google-http-java-client/)
 - [Async Http Client](https://github.com/AsyncHttpClient/async-http-client)
 
-##The Commons HttpClient and Apache HttpComponents**
+##The Commons HttpClient and Apache HttpComponents
 
 This HttpClient was started in 2001 as a subproject of the Jakarta Commons, based on code developed by the Jakarta Slide project. It was promoted out of the Commons in 2004, graduating to a separate Jakarta project. In 2005, the HttpComponents project at Jakarta was created, with the task of developing a successor to HttpClient 3.x and to maintain the existing codebase until the new one is ready to take over. The Commons project, cradle of HttpClient, left Jakarta in 2007 to become an independent Top Level Project. Later in the same year, the HttpComponents project also left Jakarta to become an independent Top Level Project, taking the responsibility for maintaining HttpClient with it.
 
 The Commons HttpClient project is now end of life, and is no longer being developed. It has been replaced by the Apache HttpComponents project in its HttpClient and HttpCore modules, which offer better performance and more flexibility.
 
+### 
 
-**Google HTTP Client Library for Java**
+
+
+##Google HTTP Client Library for Java
 
 Written by Google, this library is a flexible, efficient, and powerful Java client library for accessing any resource on the web via HTTP. It features a pluggable HTTP transport abstraction that allows any low-level library to be used, such as java.net.HttpURLConnection, Apache HTTP Client, or URL Fetch on Google App Engine. It also features efficient JSON and XML data models for parsing and serialization of HTTP response and request content. The JSON and XML libraries are also fully pluggable, including support for Jackson and Android's GSON libraries for JSON.
 
 I think the main purpose for Google to create this libirary is for Android, Google App Engine and other Google API Client for Java.
 
-**Async Http Client**
+##Async Http Client
 
 Async Http Client library purpose is to allow Java applications to easily execute HTTP requests and asynchronously process the HTTP responses. The library also supports the WebSocket Protocol. The Async HTTP Client library is simple to use. 
 
