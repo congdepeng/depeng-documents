@@ -25,3 +25,5 @@
 
 ## Performance - IO
  https://blogs.atlassian.com/2013/07/http-client-performance-io/
+
+ http://oaklandsoftware.com/product_http/compare.html
