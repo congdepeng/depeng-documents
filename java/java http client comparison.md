@@ -6,9 +6,9 @@ Date: 18/05/2014
 
 # Java HTTP client comparison
 
-The Hyper-Text Transfer Protocol (HTTP) have been the most popular protocol in the Internet today. Web services, web applications all increasing the number of applications that require HTTP support.
+The Hyper-Text Transfer Protocol (HTTP) have been the most popular protocol in the Internet today. Web services and web applications all require HTTP support.
 
-At the same time, Java have also been the most popular program language for web applications, although the ~~java.net~~ package provides basic functionality for accessing resources via HTTP, but it doesn't provide the full flexibility or functionality needed by most applications. Thus a efficient and feature-rich Java library focused on HTTP and associated protocols for creating and maintaining HTTP resources is very importand and significant.
+At the same time, Java have also been the most popular program language for web applications/services, although the *java.net* package provides basic functionality for accessing resources via HTTP, but it doesn't provide the full flexibility or functionality needed by most applications. Thus a efficient and feature-rich Java library focused on HTTP and associated protocols for creating and maintaining HTTP resources is very importand and significant.
 
 
 **Different Java HTTP client libraries**
@@ -194,7 +194,8 @@ In 2005, the HttpComponents project at Jakarta was created, with the task of dev
 **Advantage**
 - Descended from a famous organization, Apache
 - Already 8 years old
-- Full of features
+- Efficient and feature-rich 
+- Better performance and more flexibility
 
 **Disdvantage**
 - A little bit complex
@@ -202,7 +203,8 @@ In 2005, the HttpComponents project at Jakarta was created, with the task of dev
 
 ##III, Google HTTP Client Library for Java
 
-Written by Google, this library is a flexible, efficient, and powerful Java client library for accessing any resource on the web via HTTP. It features a pluggable HTTP transport abstraction that allows any low-level library to be used, such as java.net.HttpURLConnection, Apache HTTP Client, or URL Fetch on Google App Engine. It also features efficient JSON and XML data models for parsing and serialization of HTTP response and request content. The JSON and XML libraries are also fully pluggable, including support for Jackson and Android's GSON libraries for JSON.
+This library is a flexible, efficient, and powerful Java client library for accessing any resource on the web via HTTP. As it's name included, 
+it was written by Google. It features a pluggable HTTP transport abstraction that allows any low-level library to be used, such as java.net.HttpURLConnection, Apache HTTP Client, or URL Fetch on Google App Engine. It also features efficient JSON and XML data models for parsing and serialization of HTTP response and request content. The JSON and XML libraries are also fully pluggable, including support for Jackson and Android's GSON libraries for JSON.
 
 I think the main purpose for Google to create this libirary is for Android, Google App Engine and other Google API Client for Java.
 
