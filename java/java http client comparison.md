@@ -85,12 +85,17 @@ In 2007, the HttpComponents project left Jakarta to become an independent Top Le
 **HttpComponents Submodules**
 
 - HttpComponents Core
+
 	Core module is a low level HTTP transport components which supports two I/O models:
 	* blocking I/O model(based on classic Java I/O)
 	* non-blocking, event driven I/O model(based on Java NIO)
+	
 - HttpComponents Client
+
 	Client module is a HTTP/1.1 protocol implementation base on Core module. It also provides reusable components for client-side authentication, HTTP state and connection management. It is to be observed that we have mentioned that HttpComponents Client is a successor of and replacement for Commons HttpClient 3.x.
+	
 - HttpComponents AsyncClient
+
 	Asynch HttpClient is a HTTP/1.1 compliant HTTP agent implementation based on HttpCore NIO and HttpClient components. It is a complementary module to Apache HttpClient intended for special cases where ability to handle a great number of concurrent connections is more important than performance in terms of a raw data throughput.
 
 ##III, Google HTTP Client Library for Java
