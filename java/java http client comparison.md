@@ -9,7 +9,6 @@ At the same time, Java have also been the most popular program language for web 
 **Different Java HTTP client libraries**
 
 Of course there already have many different famous implementations of HTTP protocol in Java:
-
 - [The Commons HttpClient](http://hc.apache.org/httpclient-3.x/)
 - [Apache HttpComponents](https://hc.apache.org/)
 - [Google HTTP Client Library for Java](https://code.google.com/p/google-http-java-client/)
@@ -22,7 +21,6 @@ This HttpClient was started in 2001 as a subproject of the Jakarta Commons and w
 The Commons HttpClient project is now end of life, and is no longer being developed. It has been replaced by the Apache HttpComponents project in its HttpClient and HttpCore modules, which offer better performance and more flexibility.
 
 This is an example code of how to use commons httpClient.
-
 ```java
 
 import org.apache.commons.httpclient.*;
@@ -78,21 +76,22 @@ public class HttpClientTutorial {
 
 ##II, Apache HttpComponents
  
-In 2005, the HttpComponents project at Jakarta was created, with the task of developing a successor to the Commons HttpClient 3.x. 
-
-In 2007, the HttpComponents project left Jakarta to become an independent Top Level Project, taking the responsibility for maintaining HttpClient with it.
+In 2005, the HttpComponents project at Jakarta was created, with the task of developing a successor to the Commons HttpClient 3.x. In 2007, the HttpComponents project left Jakarta to become an independent Top Level Project, taking the responsibility for maintaining HttpClient with it.
 
 **HttpComponents Submodules**
 
 - **HttpComponents Core**
+
 	Core module is a low level HTTP transport components which supports two I/O models:
 	* blocking I/O model(based on classic Java I/O)
 	* non-blocking, event driven I/O model(based on Java NIO)
 	
 - **HttpComponents Client**
+
 	Client module is a HTTP/1.1 protocol implementation base on Core module. It also provides reusable components for client-side authentication, HTTP state and connection management. It is to be observed that we have mentioned that HttpComponents Client is a successor of and replacement for Commons HttpClient 3.x.
 	
 - **HttpComponents AsyncClient**
+
 	Asynch HttpClient is a HTTP/1.1 compliant HTTP agent implementation based on HttpCore NIO and HttpClient components. It is a complementary module to Apache HttpClient intended for special cases where ability to handle a great number of concurrent connections is more important than performance in terms of a raw data throughput.
 	
 
@@ -101,7 +100,6 @@ In 2007, the HttpComponents project left Jakarta to become an independent Top Le
 - **Basic Get Method**
 
   This example demonstrates the use of the ResponseHandler to simplify the process of processing the HTTP response and releasing associated resources.
- 
 	```java
 
  public final static void main(String[] args) throws Exception {
@@ -139,7 +137,8 @@ In 2007, the HttpComponents project left Jakarta to become an independent Top Le
 
 
 
-- Basic Post Method to upload a file
+- **Basic Post Method to upload a file**
+	
 	Example how to use multipart/form encoded POST request.
 	```java
 	 public static void main(String[] args) throws Exception {
@@ -193,8 +192,6 @@ Async Http Client library purpose is to allow Java applications to easily execut
 
 This is a example of using a Future if you want to receive and process the response in your handler:
 
-
-
 ```java
 
 import com.ning.http.client.*;
@@ -221,8 +218,6 @@ asyncHttpClient.prepareGet("http://www.ning.com/").execute(new AsyncCompletionHa
 
 
 The bright point of this library is WebSocket supported:
-
-
 ```java
 
 	WebSocket websocket = c.prepareGet(getTargetUrl())
