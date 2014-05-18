@@ -84,19 +84,102 @@ In 2007, the HttpComponents project left Jakarta to become an independent Top Le
 
 **HttpComponents Submodules**
 
-- HttpComponents Core
-
+- **HttpComponents Core**
 	Core module is a low level HTTP transport components which supports two I/O models:
 	* blocking I/O model(based on classic Java I/O)
 	* non-blocking, event driven I/O model(based on Java NIO)
 	
-- HttpComponents Client
-
+- **HttpComponents Client**
 	Client module is a HTTP/1.1 protocol implementation base on Core module. It also provides reusable components for client-side authentication, HTTP state and connection management. It is to be observed that we have mentioned that HttpComponents Client is a successor of and replacement for Commons HttpClient 3.x.
 	
-- HttpComponents AsyncClient
-
+- **HttpComponents AsyncClient**
 	Asynch HttpClient is a HTTP/1.1 compliant HTTP agent implementation based on HttpCore NIO and HttpClient components. It is a complementary module to Apache HttpClient intended for special cases where ability to handle a great number of concurrent connections is more important than performance in terms of a raw data throughput.
+	
+
+**Apache HttpComponents Code snippets**
+
+- **Basic Get Method**
+
+  This example demonstrates the use of the ResponseHandler to simplify the process of processing the HTTP response and releasing associated resources.
+ 
+	```java
+
+ public final static void main(String[] args) throws Exception {
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+        try {
+            HttpGet httpget = new HttpGet("http://localhost/");
+
+            System.out.println("Executing request " + httpget.getRequestLine());
+
+            // Create a custom response handler
+            ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
+
+                public String handleResponse(
+                        final HttpResponse response) throws ClientProtocolException, IOException {
+                    int status = response.getStatusLine().getStatusCode();
+                    if (status >= 200 && status < 300) {
+                        HttpEntity entity = response.getEntity();
+                        return entity != null ? EntityUtils.toString(entity) : null;
+                    } else {
+                        throw new ClientProtocolException("Unexpected response status: " + status);
+                    }
+                }
+
+            };
+            String responseBody = httpclient.execute(httpget, responseHandler);
+            System.out.println("----------------------------------------");
+            System.out.println(responseBody);
+        } finally {
+            httpclient.close();
+        }
+    }
+
+	
+	```
+
+
+
+- Basic Post Method to upload a file
+	Example how to use multipart/form encoded POST request.
+	```java
+	 public static void main(String[] args) throws Exception {
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+        try {
+            HttpPost httppost = new HttpPost("http://localhost:8080/upload");
+
+            FileBody bin = new FileBody(new File("/usr/upload/file1"));//hard code a file name
+            StringBody comment = new StringBody("A binary file of some kind", ContentType.TEXT_PLAIN);
+
+            HttpEntity reqEntity = MultipartEntityBuilder.create()
+                    .addPart("bin", bin)
+                    .addPart("comment", comment)
+                    .build();//chained method call
+
+
+            httppost.setEntity(reqEntity);
+
+            System.out.println("executing request " + httppost.getRequestLine());
+            CloseableHttpResponse response = httpclient.execute(httppost);
+            try {
+                System.out.println("----------------------------------------");
+                System.out.println(response.getStatusLine());
+                HttpEntity resEntity = response.getEntity();
+                if (resEntity != null) {
+                    System.out.println("Response content length: " + resEntity.getContentLength());
+                }
+                EntityUtils.consume(resEntity);
+            } finally {
+                response.close();
+            }
+        } finally {
+            httpclient.close();
+        }
+    }
+	
+	```
+	
+
+
 
 ##III, Google HTTP Client Library for Java
 
