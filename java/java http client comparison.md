@@ -6,9 +6,9 @@ Date: 18/05/2014
 
 # Java HTTP client comparison
 
-The Hyper-Text Transfer Protocol (HTTP) have been the most popular protocol used on the Internet today. Web services, network-enabled appliances and the growth of network computing continue to expand the role of the HTTP protocol beyond user-driven web browsers, while increasing the number of applications that require HTTP support.
+The Hyper-Text Transfer Protocol (HTTP) have been the most popular protocol in the Internet today. Web services, web applications all increasing the number of applications that require HTTP support.
 
-At the same time, Java have also been the most popular program language for web applications, although the java.net package provides basic functionality for accessing resources via HTTP, it doesn't provide the full flexibility or functionality needed by many applications. thus a efficient and feature-rich Java library focused on HTTP and associated protocols for creating and maintaining HTTP resources is very importand and significant.
+At the same time, Java have also been the most popular program language for web applications, although the ~~java.net~~ package provides basic functionality for accessing resources via HTTP, but it doesn't provide the full flexibility or functionality needed by most applications. Thus a efficient and feature-rich Java library focused on HTTP and associated protocols for creating and maintaining HTTP resources is very importand and significant.
 
 
 **Different Java HTTP client libraries**
@@ -78,6 +78,15 @@ public class HttpClientTutorial {
 }
 
 ```
+
+**Advantage**
+- Have a long history
+- Descended from a famous organization, Apache
+
+**Disdvantage**
+- no longer being developed
+
+
 
 ##II, Apache HttpComponents
  
@@ -182,7 +191,13 @@ In 2005, the HttpComponents project at Jakarta was created, with the task of dev
 	
 	```
 	
+**Advantage**
+- Descended from a famous organization, Apache
+- Already 8 years old
+- Full of features
 
+**Disdvantage**
+- A little bit complex
 
 
 ##III, Google HTTP Client Library for Java
@@ -190,6 +205,82 @@ In 2005, the HttpComponents project at Jakarta was created, with the task of dev
 Written by Google, this library is a flexible, efficient, and powerful Java client library for accessing any resource on the web via HTTP. It features a pluggable HTTP transport abstraction that allows any low-level library to be used, such as java.net.HttpURLConnection, Apache HTTP Client, or URL Fetch on Google App Engine. It also features efficient JSON and XML data models for parsing and serialization of HTTP response and request content. The JSON and XML libraries are also fully pluggable, including support for Jackson and Android's GSON libraries for JSON.
 
 I think the main purpose for Google to create this libirary is for Android, Google App Engine and other Google API Client for Java.
+
+This is a simple example that demonstrates how to use Google HTTP Client Library for Java with
+the Google+ API.
+
+```java
+
+ public static PlusUrl listPublicActivities(String userId) {
+      return new PlusUrl(
+          "https://www.googleapis.com/plus/v1/people/" + userId + "/activities/public");
+    }
+  }
+
+  private static void parseResponse(HttpResponse response) throws IOException {
+    ActivityFeed feed = response.parseAs(ActivityFeed.class);
+    if (feed.getActivities().isEmpty()) {
+      System.out.println("No activities found.");
+    } else {
+      if (feed.getActivities().size() == MAX_RESULTS) {
+        System.out.print("First ");
+      }
+      System.out.println(feed.getActivities().size() + " activities found:");
+      for (Activity activity : feed.getActivities()) {
+        System.out.println();
+        System.out.println("-----------------------------------------------");
+        System.out.println("HTML Content: " + activity.getActivityObject().getContent());
+        System.out.println("+1's: " + activity.getActivityObject().getPlusOners().getTotalItems());
+        System.out.println("URL: " + activity.getUrl());
+        System.out.println("ID: " + activity.get("id"));
+      }
+    }
+  }
+
+  private static void run() throws IOException {
+    HttpRequestFactory requestFactory =
+        HTTP_TRANSPORT.createRequestFactory(new HttpRequestInitializer() {
+            @Override
+          public void initialize(HttpRequest request) {
+            request.setParser(new JsonObjectParser(JSON_FACTORY));
+          }
+        });
+    PlusUrl url = PlusUrl.listPublicActivities(USER_ID).setMaxResults(MAX_RESULTS);
+    url.put("fields", "items(id,url,object(content,plusoners/totalItems))");
+    HttpRequest request = requestFactory.buildGetRequest(url);
+    parseResponse(request.execute());
+  }
+
+  public static void main(String[] args) {
+    if (API_KEY.startsWith("Enter ")) {
+      System.err.println(API_KEY);
+      System.exit(1);
+    }
+    try {
+      try {
+        run();
+        return;
+      } catch (HttpResponseException e) {
+        System.err.println(e.getMessage());
+      }
+    } catch (Throwable t) {
+      t.printStackTrace();
+    }
+    System.exit(1);
+  }
+
+
+```
+
+
+**Advantage**
+- Created by Google
+- Flexible, efficient, and powerful 
+- Good integrated with Google products
+
+**Disdvantage**
+- Not that famous than Apache HttpComponents
+
 
 ##IV, Async Http Client
 
@@ -249,6 +340,13 @@ The bright point of this library is WebSocket supported:
       }).build()).get();
 
 ```
+**Advantage**
+- Simple to use
+- Asynchronously （based on Natty）
+- Supports the WebSocket Protocol
+
+**Disdvantage**
+- The develop group [Ning](http://www.ning.com/what-is-ning/) is not that famous that other candidates
 
 ##V, Conclusion
 
