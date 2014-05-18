@@ -1,3 +1,8 @@
+```
+Author: Cong Depeng
+Date: 18/05/2014
+```
+
 
 # Java HTTP client comparison
 
@@ -186,7 +191,7 @@ Written by Google, this library is a flexible, efficient, and powerful Java clie
 
 I think the main purpose for Google to create this libirary is for Android, Google App Engine and other Google API Client for Java.
 
-##III, Async Http Client
+##IV, Async Http Client
 
 Async Http Client library purpose is to allow Java applications to easily execute HTTP requests and asynchronously process the HTTP responses. The library also supports the WebSocket Protocol. The Async HTTP Client library is simple to use. 
 
@@ -244,3 +249,12 @@ The bright point of this library is WebSocket supported:
       }).build()).get();
 
 ```
+
+##V, Conclusion
+
+- [Apache HttpComponents](https://hc.apache.org/) is competent for most common requirements of anyone building HTTP-aware client and server applications.
+- [Google HTTP Client Library for Java](https://code.google.com/p/google-http-java-client/) is suitable when you develop for Android, Google App Engine and other Google API Client with Java.
+- [Async Http Client](https://github.com/AsyncHttpClient/async-http-client) will be chosen when you have many asynchronously process of the HTTP responses.The library also supports the WebSocket Protocol. Of course, Apache HttpComponents also have a AsyncClient, it all depends on your choice.
+
+
+
