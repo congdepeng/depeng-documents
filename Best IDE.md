@@ -21,5 +21,12 @@ On Mac OS X IDEA uses the following directories:
  - Logs: ~/Library/Logs/IntelliJIdeaXX (starting from IntelliJ IDEA 9.0, older versions keep logs under System location)
 
 ```java
+#clear all
+
     sudo rm -rf ~/Library/Preferences/IntelliJIdea*; sudo rm -rf ~/Library/Caches/IntelliJIdea*
+```
+
+```java
+#clear eval key only
+/Users/congdepeng/Library/Preferences/IntelliJIdea14/eval/idea14.evaluation.key
 ```
